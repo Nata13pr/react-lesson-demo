@@ -1,11 +1,12 @@
 import './App.css'
+import CoursesComponent from "./components/courses-component/CoursesComponent.tsx";
 
 function App() {
 
     return (
-        <div className="text-3xl font-bold underline">
-            Hello Okten
-        </div>
+        <>
+                <CoursesComponent/>
+        </>
     )
 }
 
