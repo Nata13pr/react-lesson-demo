@@ -1,11 +1,24 @@
 import './App.css'
+import type {FC} from "react";
 
-function App() {
+export let coursesTitleArray: string[] = [
+    'JavaScript Complex',
+    'Java Complex',
+    'Python Complex',
+    'QA Complex',
+    'Fullstack',
+    'Frontend'
+];
+const App: FC = () => {
 
     return (
-        <div className="text-3xl font-bold underline">
-            Hello Okten
-        </div>
+        <>
+            <ul>{
+                coursesTitleArray.map((item, index) => <li key={index}
+                                                           className="text-gray-700 dark:text-gray-400 underline decoration-pink-500">{item}</li>)
+            }
+            </ul>
+        </>
     )
 }
 
