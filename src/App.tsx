@@ -1,10 +1,11 @@
 import './App.css'
+import TodosComponent from "./components/todos-component/TodosComponent.tsx";
 
 function App() {
 
     return (
-        <div className="text-3xl font-bold underline">
-            Hello Okten
+        <div >
+         <TodosComponent/>
         </div>
     )
 }
