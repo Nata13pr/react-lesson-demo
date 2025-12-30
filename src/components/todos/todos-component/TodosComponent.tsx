@@ -1,7 +1,7 @@
 import './TodosComponent.css'
 import {useEffect, useState} from "react";
-import type {ITodo} from "../../models/ITodo.ts";
-import {loadTodos} from "../../service/api.service.ts";
+import type {ITodo} from "../../../models/ITodo.ts";
+import {loadTodos} from "../../../service/api.service.ts";
 import TodoComponent from "../todo-component/TodoComponent.tsx";
 
 const TodosComponent = () => {
