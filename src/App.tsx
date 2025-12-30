@@ -1,10 +1,11 @@
 import './App.css'
+import CommentsComponent from "./components/comments-component/CommentsComponent.tsx";
 
 function App() {
 
     return (
-        <div className="text-3xl font-bold underline">
-            Hello Okten
+        <div>
+            <CommentsComponent/>
         </div>
     )
 }

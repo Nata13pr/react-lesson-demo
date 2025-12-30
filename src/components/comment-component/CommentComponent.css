@@ -1,0 +1,15 @@
+li h2{
+    font-size: 27px;
+    font-weight: bold;
+    color: blue;
+}
+li h2 span {
+    color: green;
+    text-decoration: underline black;
+}
+
+li h3{
+    font-size: 23px;
+    color: aqua;
+    text-transform: uppercase;
+}
