@@ -1,10 +1,11 @@
 import './App.css'
+import PostsComponent from "./components/posts-component/PostsComponent.tsx";
 
 function App() {
 
     return (
-        <div className="text-3xl font-bold underline">
-            Hello Okten
+        <div>
+            <PostsComponent/>
         </div>
     )
 }
