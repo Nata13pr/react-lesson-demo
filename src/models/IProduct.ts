@@ -23,7 +23,7 @@ export interface IProduct {
     thumbnail: string
 }
 
-interface IReviews {
+export interface IReviews {
     rating: number,
     comment: string,
     date: string,

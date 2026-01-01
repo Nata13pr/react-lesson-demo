@@ -1,0 +1,15 @@
+li span {
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline blue;
+}
+
+li ul {
+    list-style-type: decimal !important;
+    padding-left: 2rem;
+    margin-bottom: 10px;
+}
+
+img.thumbnail {
+    width: 100px;
+}
