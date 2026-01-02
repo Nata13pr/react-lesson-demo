@@ -12,3 +12,9 @@ interface IUser {
     fullName: string
 }
 
+export interface ICommentlist {
+    comments: IComment[],
+    limit: number,
+    skip: number,
+    total: number
+}

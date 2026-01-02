@@ -1,5 +1,6 @@
 import type {ITodosList} from "../models/ITodo.ts";
 import type {IPostList} from "../models/IPost.ts";
+import type {ICommentlist} from "../models/IComment.ts";
 
 const endpointTodos = import.meta.env.VITE_API_BASE_URL + '/todos';
 const endpointPosts = import.meta.env.VITE_API_BASE_URL + '/posts';
@@ -14,7 +15,7 @@ const loadPosts = async (): Promise<IPostList> => {
     return await fetch(endpointPosts)
         .then(value => value.json())
 }
-const loadComments = async (): Promise<any> => {
+const loadComments = async (): Promise<ICommentlist> => {
     return await fetch(endpointComments)
         .then(value => value.json())
 }
