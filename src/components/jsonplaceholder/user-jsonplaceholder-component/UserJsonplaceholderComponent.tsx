@@ -13,14 +13,12 @@ const UserJsonplaceholderComponent: FC<UserPropsType> = ({user}) => {
                 <p>Нікнейм: {user.username}</p>
                 <p>ID: {user.id}</p>
             </header>
-
             <section>
                 <h2>Контактна інформація</h2>
                 <p>Email: {user.email}</p>
                 <p>Телефон: {user.phone}</p>
                 <p>Сайт: {user.website}</p>
             </section>
-
             <section>
                 <h2>Адреса</h2>
                 <p>Вулиця: {user.address.street}</p>
@@ -33,7 +31,6 @@ const UserJsonplaceholderComponent: FC<UserPropsType> = ({user}) => {
                     <p>Довгота (lng): {user.address.geo.lng}</p>
                 </div>
             </section>
-
             <section>
                 <h2>Компанія</h2>
                 <p>Назва: {user.company.name}</p>
