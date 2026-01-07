@@ -22,11 +22,9 @@ const UserDummyjsonComponent: FC<UserPropsType> = ({user}) => {
             <p>Height: {user.height}</p>
             <p>Weight: {user.weight}</p>
             <p>Eye Color: {user.eyeColor}</p>
-
             <h3>Hair</h3>
             <p>Color: {user.hair.color}</p>
             <p>Type: {user.hair.type}</p>
-
             <h3>Address</h3>
             <p>Address: {user.address.address}</p>
             <p>City: {user.address.city}</p>
@@ -36,26 +34,22 @@ const UserDummyjsonComponent: FC<UserPropsType> = ({user}) => {
             <p>Country: {user.address.country}</p>
             <p>Lat: {user.address.coordinates.lat}</p>
             <p>Lng: {user.address.coordinates.lng}</p>
-
             <h3>Bank</h3>
             <p>Card Expire: {user.bank.cardExpire}</p>
             <p>Card Number: {user.bank.cardNumber}</p>
             <p>Card Type: {user.bank.cardType}</p>
             <p>Currency: {user.bank.currency}</p>
             <p>IBAN: {user.bank.iban}</p>
-
             <h3>Company</h3>
             <p>Name: {user.company.name}</p>
             <p>Title: {user.company.title}</p>
             <p>Department: {user.company.department}</p>
             <p>Company Address: {user.company.address.address}</p>
             <p>Company City: {user.company.address.city}</p>
-
             <h3>Crypto</h3>
             <p>Coin: {user.crypto.coin}</p>
             <p>Wallet: {user.crypto.wallet}</p>
             <p>Network: {user.crypto.network}</p>
-
             <h3>Other</h3>
             <p>IP: {user.ip}</p>
             <p>MAC: {user.macAddress}</p>
