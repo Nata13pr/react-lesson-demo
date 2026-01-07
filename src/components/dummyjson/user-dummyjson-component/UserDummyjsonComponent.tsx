@@ -8,7 +8,7 @@ type UserPropsType = {
 const UserDummyjsonComponent: FC<UserPropsType> = ({user}) => {
     return (
         <li>
-            <h1>{user.firstName} {user.lastName}</h1>
+            <h1><strong>{user.firstName} {user.lastName}</strong></h1>
             <p>ID: {user.id}</p>
             <p>Maiden Name: {user.maidenName}</p>
             <p>Age: {user.age}</p>

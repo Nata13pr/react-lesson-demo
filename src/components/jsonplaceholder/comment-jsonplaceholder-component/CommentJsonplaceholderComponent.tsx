@@ -8,7 +8,7 @@ type CommentPropsType={
 const CommentJsonplaceholderComponent: FC<CommentPropsType>= ({comment}) => {
     return (
         <li>
-            <h2>Name - {comment.name}.Email - {comment.email}</h2>
+            <h2><strong>Name - {comment.name}.Email - {comment.email}</strong></h2>
             <p>Body - {comment.body}</p>
         </li>
     )

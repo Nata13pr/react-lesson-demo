@@ -9,7 +9,7 @@ type PostPropsType = {
 const PostJsonplaceholderComponent: FC<PostPropsType> = ({post}) => {
     return (
         <li>
-            <h2>Title - {post.title}</h2>
+            <h2><strong>Title - {post.title}</strong></h2>
             <p>Body - {post.body}</p>
         </li>
     )

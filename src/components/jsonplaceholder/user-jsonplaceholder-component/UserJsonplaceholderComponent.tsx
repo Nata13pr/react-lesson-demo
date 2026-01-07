@@ -9,7 +9,7 @@ const UserJsonplaceholderComponent: FC<UserPropsType> = ({user}) => {
     return (
         <li>
             <header>
-                <h1>{user.name}</h1>
+                <h1><strong>{user.name}</strong></h1>
                 <p>Нікнейм: {user.username}</p>
                 <p>ID: {user.id}</p>
             </header>
