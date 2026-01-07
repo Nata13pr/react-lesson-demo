@@ -1,14 +1,14 @@
-import {useLocation} from 'react-router-dom'
-import type {IUser} from "../models/user-model/IUser.ts";
+import {useParams} from 'react-router-dom'
+import CartsComponent from "../components/carts-component/CartsComponent.tsx";
 
 const ProductsPage = () => {
-    const {state} = useLocation();
-    const user = state as IUser;
+    const {userId} = useParams();
 
     return (
-        <>
-            {user.firstName}
-        </>
+        <div>
+            {userId && <CartsComponent userId={userId}/>}
+        </div>
+
     )
 }
 export default ProductsPage;
