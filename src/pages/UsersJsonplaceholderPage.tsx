@@ -11,6 +11,7 @@ const UsersJsonplaceholderPage = () => {
         loadJsonplaceholderUsers()
             .then(response => setUsers(response));
     }, [])
+
     return (
         <UsersJsonplaceholderComponent users={users}/>
     )
