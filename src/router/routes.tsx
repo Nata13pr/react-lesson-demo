@@ -3,9 +3,6 @@ import MainLayout from "../layouts/MainLayout.tsx";
 import ProductsPage from "../pages/ProductsPage.tsx";
 
 export const routes = createBrowserRouter([
-    {
-        path: '/', element: <MainLayout/>, children: [
-            {path: '/carts/user/:userId', element: <ProductsPage/>}
-        ]
-    }
+    {path: '/', element: <MainLayout/>},
+    {path: '/carts/user/:userId', element: <ProductsPage/>}
 ])
