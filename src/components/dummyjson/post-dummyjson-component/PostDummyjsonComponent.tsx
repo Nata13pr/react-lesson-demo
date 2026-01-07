@@ -11,7 +11,6 @@ const PostDummyjsonComponent: FC<PostPropsType> = ({post}) => {
         <li>
             <h2>Title - {post.title}</h2>
             <p>Body - {post.body}</p>
-
             <div>
                 <strong>Tags:</strong>
                 <ul>
@@ -23,7 +22,6 @@ const PostDummyjsonComponent: FC<PostPropsType> = ({post}) => {
                 <p>Dislikes: {post.reactions.dislikes}</p>
                 <p>Views: {post.views}</p>
             </div>
-
             <small>Post ID: {post.id} | User ID: {post.userId}</small>
         </li>
     )
