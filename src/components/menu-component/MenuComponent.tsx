@@ -1,7 +1,7 @@
 import {Link} from 'react-router'
 import "./MenuComponent.css"
 
-const MenuComponent=()=>{
+const MenuComponent = () => {
     return (
         <ul>
             <li>
