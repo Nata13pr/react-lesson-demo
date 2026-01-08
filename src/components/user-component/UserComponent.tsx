@@ -9,7 +9,7 @@ type UserPropsType = {
 const UserComponent: FC<UserPropsType> = ({user}) => {
     const navigate = useNavigate();
     const handleOnClick = () => {
-        navigate('/carts/user/' + user.id, {state: user})
+        navigate('/user/' + user.id +'/carts', {state: user})
     }
     return (
         <li>
