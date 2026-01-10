@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {postService} from "../services/api.service.ts";
-import {useSearchParams} from "react-router";
+import {Outlet, useSearchParams} from "react-router";
 import PaginationPage from "./PaginationPage.tsx";
 import type {IPost} from "../models/post-model/IPost.ts";
 import PostsComponent from "../components/posts-component/PostsComponent.tsx";
@@ -28,9 +28,10 @@ const PostsPage = () => {
 
     }, [query])
 
-
     return (
         <>
+            <Outlet/>
+            <hr className='text-blue-950 border-7'/>
             <PaginationPage total={total}/>
             <PostsComponent posts={posts}/>
         </>

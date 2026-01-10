@@ -8,9 +8,12 @@ type UsersPropsType = {
 }
 const UsersComponent: FC<UsersPropsType> = ({users}) => {
     return (
-        <ul>
-            {users.map(user => <UserComponent key={user.id} user={user}/>)}
-        </ul>
+        <div>
+            <h2 className='font-bold col-end-4 text-3xl'>Users</h2>
+            <ul>
+                {users.map(user => <UserComponent key={user.id} user={user}/>)}
+            </ul>
+        </div>
     )
 }
 export default UsersComponent;

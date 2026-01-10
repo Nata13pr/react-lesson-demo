@@ -9,11 +9,14 @@ type PostsPropsType = {
 }
 const PostsComponent: FC<PostsPropsType> = ({posts}) => {
     return (
-        <ul>
-            {
-                posts.map(post => <PostComponent key={post.id} post={post}/>)
-            }
-        </ul>
+        <div>
+            <h2 className='text-red-800'><strong>Posts</strong></h2>
+            <ul>
+                {
+                    posts.map(post => <PostComponent key={post.id} post={post}/>)
+                }
+            </ul>
+        </div>
     )
 }
 export default PostsComponent

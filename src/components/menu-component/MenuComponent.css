@@ -4,3 +4,6 @@
     align-items: center;
     gap: 25px
 }
+.menu li{
+    background-color: lightblue;
+}

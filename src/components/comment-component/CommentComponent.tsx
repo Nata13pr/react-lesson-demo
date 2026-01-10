@@ -2,10 +2,10 @@ import './CommentComponent.css';
 import type {FC} from "react";
 import type {IComment} from "../../models/comment-model/IComment.ts";
 
-type CommentPropsType={
+type CommentPropsType = {
     comment: IComment
 }
-const CommentComponent:FC<CommentPropsType> = ({comment})=>{
+const CommentComponent: FC<CommentPropsType> = ({comment}) => {
     return (
         <li>
             <h2>{comment.body}</h2>

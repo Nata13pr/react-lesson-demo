@@ -2,7 +2,7 @@ import type {IUser} from "../models/user-model/IUser.ts";
 import {useEffect, useState} from "react";
 import {userService} from "../services/api.service.ts";
 import UsersComponent from "../components/users-component/UsersComponent.tsx";
-import {useSearchParams} from "react-router";
+import {Outlet, useSearchParams} from "react-router";
 import PaginationPage from "./PaginationPage.tsx";
 
 const UsersPage = () => {
@@ -27,12 +27,12 @@ const UsersPage = () => {
         }
 
     }, [query])
-
-
     return (
         <>
-            <PaginationPage total={total}/>
+            <Outlet/>
+            <hr className='text-red-950 border-7'/>
             <UsersComponent users={users}/>
+            <PaginationPage total={total}/>
         </>
     )
 }
