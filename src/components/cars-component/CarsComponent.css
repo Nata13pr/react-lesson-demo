@@ -1,0 +1,8 @@
+.cars-list {
+    list-style: none;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Адаптивна сітка */
+    gap: 20px;
+    background-color: #f4f7f6;
+}
