@@ -16,10 +16,8 @@ const FormComponent = () => {
         resolver: joiResolver(carValidator)
     })
     const customHandler = async (formDataProps: IFormProps) => {
-        const id = Date.now()
-        const car = {...formDataProps, id};
         try {
-            await createCar(car)
+            await createCar(formDataProps)
             reset()
         } catch (error) {
             console.error('Помилка при створенні:', error);
