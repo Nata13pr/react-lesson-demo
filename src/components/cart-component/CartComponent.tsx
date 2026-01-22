@@ -19,13 +19,11 @@ const CartComponent: FC<CartPropsType> = ({cart}) => {
                     <div className="quantity-value">${cart.totalQuantity}</div>
                 </div>
             </div>
-
             <div className="product-list">
                 {
                     cart.products.map(product => <CartProductComponent product={product} key={product.id}/>)
                 }
             </div>
-
             <div className="cart-footer">
                 <div>
                     <div className="total-label">Сума до сплати</div>
