@@ -1,0 +1,133 @@
+ul.comment{
+    list-style-type: none;
+}
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #f1f5f9;
+    --radius-lg: 24px;
+    --radius-md: 12px;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*body {*/
+/*    font-family: 'Plus Jakarta Sans', sans-serif;*/
+/*    background-color: var(--bg-body);*/
+/*    color: var(--text-main);*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    min-height: 100vh;*/
+/*    padding: 20px;*/
+/*}*/
+
+.comment{
+    margin-bottom: 20px;
+}
+.comment-card {
+    width: 100%;
+    max-width: 600px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.username {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Тіло коментаря */
+.comment-body {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    padding-left: 60px;
+}
+
+/* Футер: Лайки та ID */
+.comment-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    margin-top: 8px;
+    border-top: 1px solid var(--border);
+    padding-left: 60px;
+}
+
+.likes-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.likes-count:hover {
+    transform: scale(1.05);
+}
+
+.post-id {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+@media (max-width: 480px) {
+    .comment-body, .comment-footer {
+        padding-left: 0;
+    }
+}

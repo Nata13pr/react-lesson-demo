@@ -1,10 +1,10 @@
 import "./FormComponent.css";
 import {useForm} from "react-hook-form";
 import type ILogin from "../../models/ILogin.ts";
-import {login} from "../../services/api.service.ts";
 import {useState} from "react";
 import {ERROR_MESSAGES} from "../../constants/errors.ts";
 import {useNavigate} from "react-router";
+import {login} from "../../services/auth.service.ts";
 
 const FormComponent = () => {
     const [serverError, setServerError] = useState<string | null>(null);
@@ -36,27 +36,30 @@ const FormComponent = () => {
     }
 
     return (
-        <div>
+        <div className="form-wrapper">
+        <div className="form-container">
+            <h2 className="form-title">Вхід</h2>
             {serverError && (
-                <div className='error'>
+                <div className="error-banner" >
                     <span>⚠️</span> {serverError}
                 </div>
             )}
             <form onSubmit={handleSubmit(customHandler)}>
-                <div>
+                <div className="input-field">
                     <label>
                         <input type="text" {...register("username")}/>
-                        {errors.username && <div>{errors.username.message}</div>}
+                        {errors.username && <div className="field-error-message">{errors.username.message}</div>}
                     </label>
                 </div>
-                <div>
+                <div className="input-field">
                     <label>
                         <input type="password" {...register("password")}/>
-                        {errors.password && <div>{errors.password.message}</div>}
+                        {errors.password && <div  className="field-error-message">{errors.password.message}</div>}
                     </label>
                 </div>
-                <button disabled={!isValid}>Log in</button>
+                <button className="submit-button" disabled={!isValid}>Log in</button>
             </form>
+        </div>
         </div>
     )
 }

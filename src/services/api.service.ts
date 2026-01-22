@@ -1,9 +1,6 @@
 import axios from 'axios';
 import {baseUrl} from "../constants/urls.ts";
-import type ILogin from "../models/ILogin.ts";
 import type {IUserWithTokens} from "../models/IUserWithTokens.ts";
-// import type {IResponseType} from "../models/IResponseType.ts";
-// import type {IProduct} from "../models/IProduct.ts";
 import {retrieveLocalStorage} from "./helpers.ts";
 
 export const axiosInstance = axios.create({
@@ -16,12 +13,3 @@ axiosInstance.interceptors.request.use((requestObject) => {
     }
     return requestObject;
 })
-export const login = async ({username, password, expiresInMins = 1}: ILogin): Promise<IUserWithTokens> => {
-    const {data: userWithTokens} = await axiosInstance.post<IUserWithTokens>('login', {
-        username,
-        password,
-        expiresInMins
-    })
-    localStorage.setItem("user", JSON.stringify(userWithTokens))
-    return userWithTokens
-}

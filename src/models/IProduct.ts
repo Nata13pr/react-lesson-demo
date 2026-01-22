@@ -1,3 +1,5 @@
+import type {IReview} from "./IReview.ts";
+
 export interface IProduct {
     id: number;
     title: string;
@@ -15,7 +17,7 @@ export interface IProduct {
     warrantyInformation: string;
     shippingInformation: string;
     availabilityStatus: string;
-    reviews: IReviews[];
+    reviews: IReview[];
     returnPolicy: string;
     minimumOrderQuantity: number;
     meta: IMeta;
@@ -27,14 +29,6 @@ interface IDimensions {
     width: number;
     height: number;
     depth: number;
-}
-
-interface IReviews {
-    rating: number;
-    comment: string;
-    date: string;
-    reviewerName: string;
-    reviewerEmail: string;
 }
 
 interface IMeta {
