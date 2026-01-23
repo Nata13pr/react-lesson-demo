@@ -6,7 +6,7 @@ type PaginationPropsType = {
     total: number,
     limit: number,
 }
-const PaginationPage: FC<PaginationPropsType> = ({total,limit}) => {
+const PaginationPage: FC<PaginationPropsType> = ({total, limit}) => {
     const [searchParams, setSearchParams] = useSearchParams({page: '1'});
     let currentPage = Number(searchParams.get("page") || '1');
     const page = Number(searchParams.get('page'))
@@ -24,9 +24,9 @@ const PaginationPage: FC<PaginationPropsType> = ({total,limit}) => {
     }
     return (
         <>
-            <PaginationComponent page={page} handleOnClickNext={handleOnClickNext} handleOnClickPrev={handleOnClickPrev}/>
+            <PaginationComponent page={page} handleOnClickNext={handleOnClickNext}
+                                 handleOnClickPrev={handleOnClickPrev}/>
         </>
-
     )
 }
 export default PaginationPage;

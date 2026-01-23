@@ -8,3 +8,7 @@ export const loadCarts = async (page: string): Promise<IResponseType<ICart, 'car
     const {data} = await axiosInstance.get<IResponseType<ICart, 'carts'>>('/carts' + `?limit=${limit}` + '&skip=' + skip);
     return data;
 }
+export const getCartsOfUser = async (userId: string): Promise<IResponseType<ICart, 'carts'>> => {
+    const {data} = await axiosInstance.get<IResponseType<ICart, 'carts'>>(`carts/user/${userId}`);
+    return data;
+}

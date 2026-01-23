@@ -2,26 +2,32 @@ import "./PostComponent.css"
 import type {FC} from "react";
 import type {IPost} from "../../models/post-model/IPost.ts";
 import TagPostComponent from "../tag-post-component/TagPostComponent.tsx";
+import CommentsButtonComponent from "../comments-button-component/CommentsButtonComponent.tsx";
+import {Outlet, useOutlet, useOutletContext} from "react-router";
 
 type PostPropsType = {
     post: IPost
 }
 const PostComponent: FC<PostPropsType> = ({post}) => {
+    const context = useOutletContext<{ userId: number } | null>();
+    const outlet = useOutlet();
+    const shouldShowButton = context?.userId && !outlet;
     return (
-        <li className='posts post-container'>
-            <div className="post-card">
-                <div className="post-header">
-                    <div className="user-info">
-                        <div className="avatar">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                            </svg>
-                        </div>
-                        <div className="user-details">
-                            <span className="user-id">User ID: {post.userId}</span>
-                            <span className="post-id">
+        <>
+            <li className='posts post-container'>
+                <div className="post-card">
+                    <div className="post-header">
+                        <div className="user-info">
+                            <div className="avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                </svg>
+                            </div>
+                            <div className="user-details">
+                                <span className="user-id">User ID: {post.userId}</span>
+                                <span className="post-id">
                         <svg style={{width: '12px'}} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,50 +35,57 @@ const PostComponent: FC<PostPropsType> = ({post}) => {
                         </svg>
                         Post ID: {post.id}
                     </span>
+                            </div>
                         </div>
+                        <h2 className="post-title">{post.title}</h2>
+                        <p className="post-body">
+                            {post.body}
+                        </p>
                     </div>
-                    <h2 className="post-title">{post.title}</h2>
-                    <p className="post-body">
-                        {post.body}
-                    </p>
-                </div>
-                <div className="tags-container">
-                    {post.tags.map((tag, index) => <TagPostComponent key={index} tag={tag}/>)}
-                </div>
-
-                <div className="post-footer">
-                    <div className="reactions">
-                        <div className="reaction-item likes">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                            <span>{post.reactions.likes}</span>
-                        </div>
-                        <div className="reaction-item dislikes">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M10 14H5.236a2 2 0 01-1.789-2.894l2.3-4.6A2 2 0 017.528 5h4.236a2 2 0 011.914 1.415l1.092 4.135a2 2 0 01-1.936 2.45H12"/>
-                            </svg>
-                            <span>{post.reactions.dislikes}</span>
-                        </div>
+                    <div className="tags-container">
+                        {post.tags.map((tag, index) => <TagPostComponent key={index} tag={tag}/>)}
                     </div>
 
-                    <div className="views">
-                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                             stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                        </svg>
-                        <span>{post.views} views</span>
+                    <div className="post-footer">
+                        <div className="reactions">
+                            <div className="reaction-item likes">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                                <span>{post.reactions.likes}</span>
+                            </div>
+                            <div className="reaction-item dislikes">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M10 14H5.236a2 2 0 01-1.789-2.894l2.3-4.6A2 2 0 017.528 5h4.236a2 2 0 011.914 1.415l1.092 4.135a2 2 0 01-1.936 2.45H12"/>
+                                </svg>
+                                <span>{post.reactions.dislikes}</span>
+                            </div>
+                        </div>
+
+                        <div className="views">
+                            <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                            <span>{post.views} views</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
+            </li>
+            {/* 3. Кнопка з'явиться тільки в профілі юзера */}
+            {shouldShowButton && <CommentsButtonComponent postId={post.id}/>}
+            {/*<CommentsButtonComponent postId={post.id}/>*/}
+            <Outlet context={{postId: post?.id}}/>
+        </>
+
     )
 }
 export default PostComponent

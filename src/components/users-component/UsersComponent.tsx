@@ -10,7 +10,7 @@ const UsersComponent: FC<UsersPropsType> = ({users}) => {
     return (
         <ul className='users'>
             {
-                users.map(user => <UserComponent user={user} key={user.id}/>)
+                users.map(user => <UserComponent user={user} key={user.id} ElementType={'li'}/>)
             }
         </ul>
     )

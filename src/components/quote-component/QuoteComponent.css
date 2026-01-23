@@ -1,11 +1,12 @@
-
-.list {
+.list-quotes {
     list-style: none;
     margin-bottom: 20px;
-
 }
 
 .quote-card {
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
     position: relative;
     background-color: #fff;
     padding: 24px;
@@ -15,7 +16,6 @@
     transition: transform 0.2s ease;
     overflow: hidden;
     font-family: sans-serif;
-    max-width: 800px;
     margin: 0 auto;
 }
 

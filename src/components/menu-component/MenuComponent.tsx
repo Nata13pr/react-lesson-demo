@@ -6,6 +6,9 @@ const MenuComponent = () => {
 
         <ul className='menu-container'>
             <li>
+                <Link to={'/menu/me'}>About Me</Link>
+            </li>
+            <li>
                 <Link to={'products'}>Products</Link>
             </li>
             <li>

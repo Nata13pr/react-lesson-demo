@@ -8,3 +8,8 @@ export const loadPosts = async (page: string): Promise<IResponseType<IPost, 'pos
     const {data} = await axiosInstance.get<IResponseType<IPost, 'posts'>>('/posts' + `?limit=${limit}` + '&skip=' + skip);
     return data;
 }
+
+export const getPostsOfUser = async (userId: string): Promise<IResponseType<IPost, 'posts'>> => {
+    const {data} = await axiosInstance.get<IResponseType<IPost, 'posts'>>(`posts/user/${userId}`);
+    return data;
+}

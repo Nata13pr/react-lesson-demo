@@ -7,7 +7,7 @@ type QuotePropsType = {
 }
 const QuoteComponent: FC<QuotePropsType> = ({quote}) => {
     return (
-        <li className="list">
+        <li className="list-quotes">
             <div className="quote-card ">
                 <div className="quote-accent"></div>
                 <blockquote className="quote-text">

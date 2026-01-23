@@ -11,6 +11,7 @@ import CartsPage from "../pages/CartsPage.tsx";
 import RecipesPage from "../pages/RecipesPage.tsx";
 import UsersPage from "../pages/UsersPage.tsx";
 import CommentsPage from "../pages/CommentsPage.tsx";
+import MyProfilePage from "../pages/MyProfilePage.tsx";
 
 export const routes = createBrowserRouter([
     {
@@ -59,6 +60,28 @@ export const routes = createBrowserRouter([
                     {
                         path: 'comments',
                         element: <CommentsPage/>
+                    },
+                    {
+                        path: "me",
+                        element: <MyProfilePage/>, children: [
+                            {
+                                path: 'carts/user/:userId',
+                                element: <CartsPage/>
+                            },
+                            {
+                                path: 'todos/user/:userId',
+                                element: <TodosPage/>
+                            },
+                            {
+                                path: 'posts/user/:userId',
+                                element: <PostsPage/>, children: [
+                                    {
+                                        path: 'comments/:postId',
+                                        element: <CommentsPage/>
+                                    }
+                                ]
+                            }
+                        ]
                     },
                 ]
             },

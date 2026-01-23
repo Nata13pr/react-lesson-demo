@@ -8,3 +8,7 @@ export const loadComments = async (page: string): Promise<IResponseType<IComment
     const {data} = await axiosInstance.get<IResponseType<IComment, 'comments'>>('/comments' + `?limit=${limit}` + '&skip=' + skip);
     return data;
 }
+export const getCommentsOfUser = async (postId: string): Promise<IResponseType<IComment, 'comments'>> => {
+    const {data} = await axiosInstance.get<IResponseType<IComment, 'comments'>>(`comments/post/${postId}`);
+    return data;
+}

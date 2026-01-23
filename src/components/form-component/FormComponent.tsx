@@ -17,7 +17,7 @@ const FormComponent = () => {
         try {
             await login(formDataProps);
             reset()
-            navigate("/menu");
+            navigate("/menu/me");
         } catch (error: any) {
             console.error('Login error:', error);
             let message = ERROR_MESSAGES.UNKNOWN;

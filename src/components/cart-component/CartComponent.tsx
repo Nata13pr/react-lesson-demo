@@ -8,7 +8,7 @@ type CartPropsType = {
 }
 const CartComponent: FC<CartPropsType> = ({cart}) => {
     return (
-        <li className='list'>
+        <li className='list-cart'>
             <div className="cart-header">
                 <div>
                     <h1>Кошик юзера №{cart.userId}</h1>

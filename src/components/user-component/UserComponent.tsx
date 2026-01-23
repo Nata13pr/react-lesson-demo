@@ -3,11 +3,12 @@ import {type FC} from "react";
 import type {IUser} from "../../models/user-model/IUser.ts";
 
 type UserPropsType = {
-    user: IUser
+    user: IUser,
+    ElementType:'div' | 'li'
 }
-const UserComponent: FC<UserPropsType> = ({user}) => {
+const UserComponent: FC<UserPropsType> = ({user,ElementType}) => {
     return (
-        <li style={{ listStyle: 'none', marginBottom: '30px' }}>
+        <ElementType style={{ listStyle: 'none', marginBottom: '30px' }}>
 
             <div className="user-container">
                 <aside className="sidebar">
@@ -129,7 +130,7 @@ const UserComponent: FC<UserPropsType> = ({user}) => {
                     </section>
                 </main>
             </div>
-        </li>
+        </ElementType>
     )
 }
 export default UserComponent

@@ -1,0 +1,33 @@
+.list-buttom-component {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 12px;
+    align-items: center;
+}
+
+.list-buttom-component li {
+    margin: 0;
+}
+
+.list-buttom-component button {
+    padding: 8px 16px;
+    background-color: #64748b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.list-buttom-component button:hover {
+    background-color: #475569;
+}
+
+.list-buttom-component button:active {
+    transform: translateY(1px);
+}
