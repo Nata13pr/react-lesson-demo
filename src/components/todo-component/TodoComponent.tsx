@@ -6,7 +6,7 @@ type TodoPropsType = {
 }
 
 
-const TodoComponent:FC<TodoPropsType>=({todo})=>{
+const TodoComponent: FC<TodoPropsType> = ({todo}) => {
     return (
         <li>
             <h2>Task - {todo.todo}</h2>

@@ -5,9 +5,3 @@ export interface ITodo {
     userId: number
 }
 
-export interface ITodosList {
-    todos: ITodo[];
-    limit: number,
-    skip: number,
-    total: number
-}

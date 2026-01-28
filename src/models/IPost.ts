@@ -12,10 +12,3 @@ interface IReactions {
     likes: number,
     dislikes: number
 }
-
-export interface IPostList {
-    posts: IPost[],
-    total: number,
-    skip: number,
-    limit: number
-}

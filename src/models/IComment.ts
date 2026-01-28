@@ -11,10 +11,3 @@ interface IUser {
     username: string,
     fullName: string
 }
-
-export interface ICommentlist {
-    comments: IComment[],
-    limit: number,
-    skip: number,
-    total: number
-}
