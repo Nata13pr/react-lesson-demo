@@ -1,11 +1,10 @@
-import { createSlice, isFulfilled, isRejected, type PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import type {IComment} from "../../../models/IComment.ts";
 import type {CommentSliceType} from "./commentTypes.ts";
 import {loadComments} from "./commentThunks.ts";
 
 const initialState: CommentSliceType = {
     comments: [],
-    loadState: false
 };
 
 export const commentSlice = createSlice({
@@ -20,12 +19,6 @@ export const commentSlice = createSlice({
             .addCase(loadComments.rejected, (state, action) => {
                 console.log(state);
                 console.log(action)
-            })
-            .addMatcher(isFulfilled(loadComments), (state) => {
-                state.loadState = true
-            })
-            .addMatcher(isRejected(loadComments), (state) => {
-                console.log(state);
             })
 })
 

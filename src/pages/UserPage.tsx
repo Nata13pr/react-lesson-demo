@@ -11,7 +11,7 @@ export const UserPage = () => {
     const {id} = useParams();
     const {posts} = useAppSelector(({postSlice}) => postSlice);
     const {comments} = useAppSelector(({commentSlice}) => commentSlice)
-    const {user, loadState} = useAppSelector(({userSlice}) => userSlice);
+    const {user} = useAppSelector(({userSlice}) => userSlice);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -21,7 +21,6 @@ export const UserPage = () => {
     }, [id]);
     return (
         <div>
-            {!loadState && <div>Loading</div>}
             {user && <div>{user.id} {user.name}</div>}
             {id && <PostPage id={id}/>}
         </div>

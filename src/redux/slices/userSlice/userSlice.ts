@@ -1,13 +1,12 @@
 import type {IUser} from "../../../models/IUser.ts";
-import {createSlice, isFulfilled, isRejected, type PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import type {UserSliceType} from "./userTypes.ts";
 import {loadUser, loadUsers} from "./userThunks.ts";
 
 
 const initialState: UserSliceType = {
     users: [],
-    user: null,
-    loadState: false
+    user: null
 };
 
 
@@ -15,9 +14,6 @@ export const userSlice = createSlice({
     name: 'userSlice',
     initialState: initialState,
     reducers: {
-        changeLoadState: (state, action: PayloadAction<boolean>) => {
-            state.loadState = action.payload;
-        }
     },
     extraReducers: builder =>
         builder
@@ -30,12 +26,6 @@ export const userSlice = createSlice({
             })
             .addCase(loadUser.fulfilled, (state, action: PayloadAction<IUser>) => {
                 state.user = action.payload
-            })
-            .addMatcher(isFulfilled(loadUser, loadUsers), (state) => {
-                state.loadState = true
-            })
-            .addMatcher(isRejected( loadUsers,loadUser), (state) => {
-                console.log(state);
             })
 })
 

@@ -6,7 +6,7 @@ import {postSliceActions} from "../redux/slices/postSlice/postSlice.ts";
 import PostsComponent from "../components/posts-component/PostsComponent.tsx";
 
 export const PostsPage = () => {
-    const {posts, loadState} = useAppSelector(({postSlice}) => postSlice)
+    const {posts} = useAppSelector(({postSlice}) => postSlice)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -14,7 +14,6 @@ export const PostsPage = () => {
     }, []);
     return (
         <div>
-            {!loadState && <div>Loading</div>}
             <PostsComponent posts={posts}/>
             <Outlet/>
         </div>

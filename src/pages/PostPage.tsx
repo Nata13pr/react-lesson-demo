@@ -7,13 +7,11 @@ type PostPropsType = {
 }
 
 export const PostPage: FC<PostPropsType> = ({id}) => {
-    const {loadState} = useAppSelector(({userSlice}) => userSlice);
     const {posts} = useAppSelector(({postSlice}) => postSlice);
     const {comments} = useAppSelector(({commentSlice}) => commentSlice);
 
     return (
         <div>
-            {!loadState && <div>Loading</div>}
             {id && <PostsCommentsComponent id={id} posts={posts} comments={comments}/>}
         </div>
     )

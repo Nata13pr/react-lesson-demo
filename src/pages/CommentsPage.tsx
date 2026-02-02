@@ -6,7 +6,7 @@ import {commentSliceActions} from "../redux/slices/commentSlice/commentSlice.ts"
 import CommentsComponent from "../components/comments-component/CommentsComponent.tsx";
 
 export const CommentsPage = () => {
-    const {comments, loadState} = useAppSelector(({commentSlice}) => commentSlice)
+    const {comments} = useAppSelector(({commentSlice}) => commentSlice)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -14,7 +14,6 @@ export const CommentsPage = () => {
     }, []);
     return (
         <div>
-            {!loadState && <div>Loading</div>}
             <CommentsComponent comments={comments}/>
             <Outlet/>
         </div>

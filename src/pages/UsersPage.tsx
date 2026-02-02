@@ -6,7 +6,7 @@ import UsersComponent from "../components/users-component/UsersComponent.tsx";
 import {Outlet} from "react-router-dom";
 
 export const UsersPage = () => {
-    const {users, loadState} = useAppSelector(({userSlice}) => userSlice)
+    const {users} = useAppSelector(({userSlice}) => userSlice)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -14,7 +14,6 @@ export const UsersPage = () => {
     }, []);
     return (
         <div>
-            {!loadState && <div>Loading</div>}
             <UsersComponent users={users}/>
             <Outlet/>
         </div>
