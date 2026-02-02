@@ -14,10 +14,10 @@ const initialState: PostSliceType = {
 
 const loadPosts = createAsyncThunk(
     'commentSlice/loadPosts',
-    async (id: string, thunkAPI) => {
+    async (_, thunkAPI) => {
 
         try {
-            const posts = await loadAllPosts(id)
+            const posts = await loadAllPosts()
             // thunkAPI.dispatch(userSliceActions.changeLoadState(true))
 
             return thunkAPI.fulfillWithValue(posts);

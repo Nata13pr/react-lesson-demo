@@ -5,3 +5,8 @@ export const loadAllUsers = async (): Promise<IUser[]> => {
     const {data} = await axiosInstance.get<IUser[]>('/users')
     return data;
 }
+
+export const userById = async (id: string): Promise<IUser> => {
+    const {data} = await axiosInstance.get<IUser>(`/users/${id}`)
+    return data
+}

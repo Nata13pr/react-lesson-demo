@@ -1,6 +1,7 @@
 import './UserComponent.css'
 import type {IUser} from "../../models/IUser.ts";
 import {useNavigate} from "react-router";
+import type {FC} from "react";
 
 type UserPropsType = {
     user: IUser

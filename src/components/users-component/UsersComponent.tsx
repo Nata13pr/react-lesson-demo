@@ -1,6 +1,7 @@
 import './UsersComponent.css'
 import type {IUser} from "../../models/IUser.ts";
 import UserComponent from "../user-component/UserComponent.tsx";
+import type {FC} from "react";
 
 type UsersPropsType = {
     users: IUser[]

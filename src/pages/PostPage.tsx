@@ -1,23 +1,20 @@
-import {useParams} from "react-router";
 import {useAppSelector} from "../redux/hooks/useAppSelector.tsx";
-import {useAppDispatch} from "../redux/hooks/useAppDispatch.tsx";
-import {useEffect} from "react";
-import {userSliceActions} from "../redux/slices/userSlice/userSlice.ts";
+import {type FC, } from "react";
+import PostsCommentsComponent from "../components/posts-component-with-comments/PostsCommentsComponent.tsx";
 
-export const PostPage = () => {
-    const {id} = useParams();
+type PostPropsType = {
+    id: string,
+}
 
-    const {post, loadState} = useAppSelector(({postSlice}) => postSlice);
-    const dispatch = useAppDispatch();
+export const PostPage: FC<PostPropsType> = ({id}) => {
+    const {loadState} = useAppSelector(({userSlice}) => userSlice);
+    const {posts} = useAppSelector(({postSlice}) => postSlice);
+    const {comments} = useAppSelector(({commentSlice}) => commentSlice);
 
-    useEffect(() => {
-        if(id)dispatch(userSliceActions.loadUser(id))
-    }, [id]);
-
-    return(
+    return (
         <div>
             {!loadState && <div>Loading</div>}
-            {post && <div>{post.id} {post.title}</div>}
+            {id && <PostsCommentsComponent id={id} posts={posts} comments={comments}/>}
         </div>
     )
 }

@@ -1,12 +1,8 @@
 import type {IUser} from "../../../models/IUser.ts";
-import {createAsyncThunk, createSlice, isFulfilled, isRejected, type PayloadAction} from "@reduxjs/toolkit";
-import {loadAllUsers} from "../../../services/user.service.ts";
+import {createSlice, isFulfilled, isRejected, type PayloadAction} from "@reduxjs/toolkit";
+import type {UserSliceType} from "./userTypes.ts";
+import {loadUser, loadUsers} from "./userThunks.ts";
 
-type UserSliceType = {
-    users: IUser[];
-    user: IUser | null;
-    loadState: boolean;
-}
 
 const initialState: UserSliceType = {
     users: [],
@@ -14,39 +10,7 @@ const initialState: UserSliceType = {
     loadState: false
 };
 
-const loadUsers = createAsyncThunk(
-    'commentSlice/loadUsers',
-    async (_, thunkAPI) => {
 
-        try {
-            const users = await loadAllUsers()
-            // thunkAPI.dispatch(userSliceActions.changeLoadState(true))
-
-            return thunkAPI.fulfillWithValue(users);
-            //throw new Error()
-        } catch (e) {
-            console.log(e);
-            return thunkAPI.rejectWithValue('some error')
-        }
-    }
-)
-const loadUser = createAsyncThunk(
-    'commentSlice/loadUser',
-    async (id: string, thunkAPI) => {
-
-        try {
-            const user = await fetch('https://jsonplaceholder.typicode.com/users/' + id)
-                .then(value => value.json())
-            //thunkAPI.dispatch(userSliceActions.changeLoadState(true);
-
-            return thunkAPI.fulfillWithValue(user);
-            //throe new Errror()
-        } catch (e) {
-            console.log(e);
-            return thunkAPI.rejectWithValue('some error')
-        }
-    }
-)
 export const userSlice = createSlice({
     name: 'userSlice',
     initialState: initialState,
@@ -70,11 +34,11 @@ export const userSlice = createSlice({
             .addMatcher(isFulfilled(loadUser, loadUsers), (state) => {
                 state.loadState = true
             })
-            .addMatcher(isRejected(loadUser, loadUsers), (state) => {
+            .addMatcher(isRejected( loadUsers,loadUser), (state) => {
                 console.log(state);
             })
 })
 
 export const userSliceActions = {
-    ...userSlice.actions, loadUsers, loadUser
+    ...userSlice.actions, loadUsers,loadUser
 }
