@@ -80,9 +80,7 @@ const PostComponent: FC<PostPropsType> = ({post}) => {
                     </div>
                 </div>
             </li>
-            {/* 3. Кнопка з'явиться тільки в профілі юзера */}
             {shouldShowButton && <CommentsButtonComponent postId={post.id}/>}
-            {/*<CommentsButtonComponent postId={post.id}/>*/}
             <Outlet context={{postId: post?.id}}/>
         </>
 
