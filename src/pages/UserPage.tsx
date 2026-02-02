@@ -3,6 +3,7 @@ import {useAppSelector} from "../redux/hooks/useAppSelector.tsx";
 import {useAppDispatch} from "../redux/hooks/useAppDispatch.tsx";
 import {useEffect} from "react";
 import {userSliceActions} from "../redux/slices/userSlice/userSlice.ts";
+import {Outlet} from "react-router-dom";
 
 export const UserPage = () => {
     const {id} = useParams();
@@ -17,6 +18,7 @@ export const UserPage = () => {
         <div>
             {!loadState && <div>Loading</div>}
             {user && <div>{user.id} {user.name}</div>}
+            <Outlet/>
         </div>
     )
 }

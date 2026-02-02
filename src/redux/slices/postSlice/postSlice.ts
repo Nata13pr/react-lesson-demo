@@ -1,44 +1,29 @@
-import type {IPost} from "../../../models/IPost.ts";
 import {createAsyncThunk, createSlice, isFulfilled, isRejected, type PayloadAction} from "@reduxjs/toolkit";
+import type {IPost} from "../../../models/IPost.ts";
+import {loadAllPosts} from "../../../services/post.service.ts";
 
 type PostSliceType = {
-    posts: IPost[],
-    post: IPost | null,
-    loadState: boolean,
+    posts: IPost[];
+    loadState: boolean;
 }
 
 const initialState: PostSliceType = {
     posts: [],
-    post: null,
     loadState: false
-}
+};
 
 const loadPosts = createAsyncThunk(
-    'postSlice/loadPosts',
-    async (_, thunkAPI) => {
-
-        try {
-            const posts = await fetch('https:jsonplaceholder.typicode.com/posts')
-                .then(value => value.json())
-
-            return thunkAPI.fulfillWithValue(posts)
-        } catch (e) {
-            console.log(e)
-            return thunkAPI.rejectWithValue('some error')
-        }
-    }
-)
-
-const loadPost = createAsyncThunk(
-    'postSlice/loadPost',
+    'commentSlice/loadPosts',
     async (id: string, thunkAPI) => {
-        try {
-            const post = await fetch('https://jsonplaceholder.typicode.com/posts' + id)
-                .then(value => value.json())
 
-            return thunkAPI.fulfillWithValue(post)
+        try {
+            const posts = await loadAllPosts(id)
+            // thunkAPI.dispatch(userSliceActions.changeLoadState(true))
+
+            return thunkAPI.fulfillWithValue(posts);
+            //throw new Error()
         } catch (e) {
-            console.log(e)
+            console.log(e);
             return thunkAPI.rejectWithValue('some error')
         }
     }
@@ -49,7 +34,7 @@ export const postSlice = createSlice({
     initialState: initialState,
     reducers: {
         changeLoadState: (state, action: PayloadAction<boolean>) => {
-            state.loadState = action.payload
+            state.loadState = action.payload;
         }
     },
     extraReducers: builder =>
@@ -58,17 +43,17 @@ export const postSlice = createSlice({
                 state.posts = action.payload
             })
             .addCase(loadPosts.rejected, (state, action) => {
-                console.log(state)
+                console.log(state);
                 console.log(action)
             })
-            .addMatcher(isFulfilled(loadPost, loadPosts), (state) => {
+            .addMatcher(isFulfilled(loadPosts), (state) => {
                 state.loadState = true
             })
-            .addMatcher(isRejected(loadPost, loadPosts), (state) => {
-                console.log(state)
+            .addMatcher(isRejected(loadPosts), (state) => {
+                console.log(state);
             })
 })
 
-export const postSliceAction = {
-    ...postSlice.actions, loadPosts, loadPost
+export const postSliceActions = {
+    ...postSlice.actions, loadPosts
 }

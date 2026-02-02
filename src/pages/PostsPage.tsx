@@ -1,7 +1,7 @@
 import {useAppSelector} from "../redux/hooks/useAppSelector.tsx";
 import {useAppDispatch} from "../redux/hooks/useAppDispatch.tsx";
 import {useEffect} from "react";
-import {postSliceAction} from "../redux/slices/postSlice/postSlice.ts";
+// import {postSliceAction} from "../redux/slices/postSlice/postSlice.ts";
 
 export const PostsPage = () => {
     const {posts, loadState} = useAppSelector(({postSlice}) => postSlice)
@@ -13,12 +13,13 @@ export const PostsPage = () => {
 
     return (
         <div>
-            {!loadState && <div>Loading</div>}
-            {
-                posts.map((post) => {
-                    return <div key={post.id}><strong>{post.title}</strong></div>
-                })
-            }
+            heelo
+            {/*{!loadState && <div>Loading</div>}*/}
+            {/*{*/}
+            {/*    posts.map((post) => {*/}
+            {/*        return <div key={post.id}><strong>{post.title}</strong></div>*/}
+            {/*    })*/}
+            {/*}*/}
         </div>
     )
 }
