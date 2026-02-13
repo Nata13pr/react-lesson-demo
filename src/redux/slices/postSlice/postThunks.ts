@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {loadAllPosts} from "../../../services/post.service.ts";
 
 export const loadPosts = createAsyncThunk(
-    'commentSlice/loadPosts',
+    'postSlice/loadPosts',
     async (_, thunkAPI) => {
 
         try {

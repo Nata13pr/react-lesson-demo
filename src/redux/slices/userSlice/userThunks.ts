@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {loadAllUsers, userById} from "../../../services/user.service.ts";
 
 export const loadUsers = createAsyncThunk(
-    'commentSlice/loadUsers',
+    'userSlice/loadUsers',
     async (_, thunkAPI) => {
 
         try {
