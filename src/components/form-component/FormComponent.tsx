@@ -5,11 +5,14 @@ import {useState} from "react";
 import {ERROR_MESSAGES} from "../../constants/errors.ts";
 import {useNavigate} from "react-router";
 import {login} from "../../services/auth.service.ts";
+import UserValidator from "../../validators/user.validator.ts";
+import {joiResolver} from "@hookform/resolvers/joi";
 
 const FormComponent = () => {
     const [serverError, setServerError] = useState<string | null>(null);
     const {handleSubmit, register, reset, formState: {errors, isValid}} = useForm<ILogin>({
         mode: 'all',
+        resolver: joiResolver(UserValidator)
     });
     const navigate = useNavigate();
     const customHandler = async (formDataProps: ILogin) => {
